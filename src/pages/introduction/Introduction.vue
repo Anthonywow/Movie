@@ -8,7 +8,7 @@
     <el-button @click="handleActionsAdd(10)" type="primary">异+</el-button>
     <el-button @click="handleActionsReduce(10)" type="primary">异-</el-button>
     <h4>{{count}}</h4>
-  </div>
+    </div>
 </template>
 
 <script>

@@ -17,8 +17,8 @@ export default new Router({
       name: 'Introduction',
       component: Introduction
     }
-  ],
-  scrollBehavior: function (to, from, savedPosition) {
-    return savedPosition || { x: 0, y: 0 }
-  }// 设置规范的滚动行为
+  ]
+  // scrollBehavior: function (to, from, savedPosition) {
+  //   return savedPosition || { x: 0, y: 0 }
+  // }// 设置规范的滚动行为
 })

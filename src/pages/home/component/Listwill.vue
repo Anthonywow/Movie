@@ -1,7 +1,7 @@
 <template>
-    <div>
+    <div class="wrapper" ref="wrapperwill">
         <ul class="willShowing">
-            <li class="willShowing-li" v-for="(item,index) in subjects" :key="index">
+            <li class="willShowing-li" v-for="(item,index) in willsubjects" :key="index" @click="introductionBtn(item)">
                 <div class="poster" :style="{backgroundImage:'url('+item.images.large+')'}"></div>
                 <div class="content">
                     <h3>{{item.title}}</h3>
@@ -9,57 +9,43 @@
                     <p>导演：<em v-for="(items,index) in item.directors" :key="index">{{items.name}}  </em></p>
                     <p>主演：<em v-for="(items,index) in item.casts" :key="index">{{items.name}}  </em></p>
                 </div>
-                <hr class="line"/>
             </li>
         </ul>
     </div>
-
 </template>
 
 <script>
+import Bscroll from 'better-scroll'
 export default {
   name: 'HomeListwill',
   props: {
-    subjects: Array
+    willsubjects: Array
+  },
+  methods: {
+    // 查看电影详情
+    introductionBtn (item) {
+      // this.$router.replace({name:'introduction'}); // ,params:{movieID:item.id}
+      console.log('hhhhhhhhhh')
+    }
+  },
+  mounted () {
+    const options = {
+      click: true,
+      tap: true
+    }
+    this.scroll = new Bscroll(this.$refs.wrapperwill, options)
+    console.log(this.scroll)
   }
 }
 </script>
 
 <style>
 .willShowing{
-    margin: 0 10px;
-}
-
-.poster{
-    width: 7.8125rem;
-    height: 10.9375rem;
-    background-repeat:no-repeat;
-    background-size:100% 100%;
-    display: inline-block;
-    margin-left: 16px;
-}
-
-.content{
-    float: right;
-    width: calc(100% -7.8125rem);
-}
-
-.content h3{
-    font-size: 20px;
-    margin-bottom: 50px;
-}
-
-.content p{
-    margin-bottom: 10px;
+    margin: 0 0;
 }
 
 .willShowing-li{
-    padding: 10px 0;
-}
-
-.line{
-    background-color: #ddd;
-    margin-top: 10px;
-    height: 0.1px;
+    padding: 15px;
+    border-bottom: 0.13125rem solid #e5e5e5;
 }
 </style>

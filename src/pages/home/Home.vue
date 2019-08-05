@@ -54,6 +54,7 @@ export default {
         .then(this.getMovieWillSucc)
     },
     getMovieNowSucc (res) {
+      console.log('res.data.subjects')
       console.log(res.data.subjects)
       this.nowsubjects = res.data.subjects
     },
@@ -66,7 +67,8 @@ export default {
   mounted () {
     const options = {
       click: true,
-      tap: true
+      tap: true,
+      scrollbar: true
     }
     this.getMovieNowList()
     this.getMovieWillList()
@@ -105,6 +107,9 @@ export default {
   right: 8px;
 }
 .wrapper{
-  height: 780px;
+  height: calc(100% - 45px);
+  position: fixed;
+  overflow: hidden;
+  width: 100%;
 }
 </style>

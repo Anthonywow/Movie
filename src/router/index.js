@@ -13,7 +13,7 @@ export default new Router({
       component: Home
     },
     {
-      path: '/introduction',
+      path: '/introduction/:movieID',
       name: 'Introduction',
       component: Introduction
     }

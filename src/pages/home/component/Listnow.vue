@@ -4,7 +4,7 @@
             <div class="poster" :style="{backgroundImage:'url('+item.images.large+')'}"></div>
             <div class="content" >
                 <h3>{{item.title}}</h3>
-                <p>类型：<em v-for="(items,index) in item.genres" :key="index">{{items}}</em></p>
+                <p>类型：<em v-for="(items,index) in item.genres" :key="index">{{items}}  </em></p>
                 <p>导演：<em v-for="(items,index) in item.directors" :key="index">{{items.name}}  </em></p>
                 <p>主演：<em v-for="(items,index) in item.casts" :key="index">{{items.name}}  </em></p>
             </div>
@@ -60,6 +60,15 @@ export default {
     font-size: 1rem;
     margin-bottom: 10px;
     padding-left: 10px;
+}
+
+.content > *{
+    /* 过长隐藏
+    省略号代替省略内容
+    规定段落中的文本不进行换行 */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .getShowing-li{

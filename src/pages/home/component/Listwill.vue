@@ -5,7 +5,7 @@
                 <div class="poster" :style="{backgroundImage:'url('+item.images.large+')'}"></div>
                 <div class="content">
                     <h3>{{item.title}}</h3>
-                    <p>类型：<em v-for="(items,index) in item.genres" :key="index">{{items}}</em></p>
+                    <p>类型：<em v-for="(items,index) in item.genres" :key="index">{{items}}  </em></p>
                     <p>导演：<em v-for="(items,index) in item.directors" :key="index">{{items.name}}  </em></p>
                     <p>主演：<em v-for="(items,index) in item.casts" :key="index">{{items.name}}  </em></p>
                 </div>
@@ -25,13 +25,14 @@ export default {
     // 查看电影详情
     introductionBtn (item) {
       // this.$router.replace({name:'introduction'}); // ,params:{movieID:item.id}
-      console.log('hhhhhhhhhh')
+      this.$router.replace({name: 'Introduction', params: {movieID: item.id}})
     }
   },
   mounted () {
     const options = {
       click: true,
-      tap: true
+      tap: true,
+      scrollbar: true
     }
     this.scroll = new Bscroll(this.$refs.wrapperwill, options)
     console.log(this.scroll)
